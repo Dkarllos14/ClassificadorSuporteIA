@@ -1,0 +1,7 @@
+id,data,cliente,assunto,descricao,prioridade
+1,2024-03-01,Empresa A,Erro de Login,"Utilizador não consegue aceder ao sistema, aparece mensagem de password incorreta mesmo após reset." ,Alta
+2,2024-03-01,Empresa B,Lentidão na Base de Dados,"O dashboard de vendas está a demorar mais de 30 segundos para carregar os relatórios mensais.",Media
+3,2024-03-02,Empresa C,Configuração de VPN,"Solicitação de auxílio para configurar o novo perfil de VPN no Windows 11.",Baixa
+4,2024-03-02,Empresa A,Impressora Offline,"A impressora do setor financeiro parou de responder na rede, mas o ping está normal.",Media
+5,2024-03-03,Empresa D,Pedido de Novo Acesso,"Criar conta de utilizador para novo colaborador no módulo de RH.",Baixa
+6,2024-03-03,Empresa B,Ecrã Azul (BSOD),"Portátil de um gestor apresenta ecrã azul intermitente ao iniciar o Outlook.",Critica
