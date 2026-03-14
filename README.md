@@ -175,6 +175,7 @@ python src/main.py
 **Dayson Carlos de Lima**
 
 [LinkedIn](https://www.linkedin.com/in/dayson-carlos-205911246)
+
 Graduado em Análise e Desenvolvimento de Sistemas
 Profissional com experiência em infraestrutura de TI, com foco em:
 
