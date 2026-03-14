@@ -150,7 +150,7 @@ pip install -r requirements.txt
 
 Crie um arquivo `.env` na raiz do projeto:
 
-GOOGLE_API_KEY=AIzaSyBEl5RNeMwSZwkr2INtVVCsO5In5Ur_rk0
+GOOGLE_API_KEY=SUA_CHAVE_AQUI
 
 ---
 
