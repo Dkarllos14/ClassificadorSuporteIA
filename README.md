@@ -163,15 +163,14 @@ Treinamento de modelo especializado
 
 Análise estatística dos chamados
 
-Detecção automática de incidentes
+---
 
+# Autor
 
-Autor
+**Dayson Carlos de Lima**
 
-Dayson Carlos de Lima
-
-Graduado em Análise e Desenvolvimento de Sistemas.
-
+[LinkedIn](https://www.linkedin.com/in/dayson-carlos-205911246)
+Graduado em Análise e Desenvolvimento de Sistemas
 Profissional com experiência em infraestrutura de TI, com foco em:
 
 Automação com Python
@@ -180,7 +179,8 @@ Análise de dados
 
 Inteligência Artificial aplicada
 
-Infraestrutura de TI
+Interesses técnicos:
 
-🔗 LinkedIn
-https://www.linkedin.com/in/dayson-carlos-205911246
+- Automação com Python
+- Análise de dados
+- Inteligência Artificial aplicada
