@@ -1,11 +1,33 @@
 # Classificador de Chamados de Suporte com IA
 
-Projeto desenvolvido em Python que utiliza a API do Google Gemini para classificar automaticamente chamados de suporte técnico.
+![Python](https://img.shields.io/badge/Python-3.10+-blue)
+![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-green)
+![Google Gemini](https://img.shields.io/badge/Google-Gemini%20AI-orange)
+![Status](https://img.shields.io/badge/Status-Em%20desenvolvimento-yellow)
 
-O sistema lê chamados armazenados em um arquivo CSV, envia o conteúdo para um modelo de IA e retorna:
+Projeto de automação desenvolvido em **Python** que utiliza a **API do Google Gemini** para classificar automaticamente chamados de suporte técnico.
 
-- Categoria do chamado
-- Sugestão de solução técnica
+O sistema analisa o **assunto** e a **descrição** de cada chamado e retorna:
+
+- categoria do chamado
+- sugestão de solução técnica
+
+Este projeto simula um cenário real de **Service Desk**, utilizando **Inteligência Artificial** para auxiliar na triagem e categorização de tickets de suporte.
+
+---
+
+# Objetivo
+
+Este projeto foi desenvolvido como parte de um portfólio técnico voltado para:
+
+- Automação de processos de suporte
+- Aplicação de Inteligência Artificial em TI
+- Manipulação e análise de dados com Python
+- Classificação automática de tickets de suporte
+
+---
+
+# Categorias utilizadas
 
 As categorias atualmente utilizadas são:
 
@@ -15,28 +37,29 @@ As categorias atualmente utilizadas são:
 
 ---
 
-# Objetivo
+# Fluxo do sistema
 
-Este projeto foi desenvolvido como parte de um portfólio técnico voltado para:
+O funcionamento do sistema segue o seguinte fluxo:
 
-- Automação de processos de suporte
-- Aplicação de IA em classificação de tickets
-- Manipulação e análise de dados com Python
+CSV de chamados
+⬇
+Script Python
+⬇
+API Google Gemini
+⬇
+Classificação automática
+⬇
+Arquivo CSV com resultados
 
----
 
-# Tecnologias utilizadas
+Ou de forma simplificada:
 
-- Python
-- Pandas
-- Google Gemini API
-- Pydantic
-- Python Dotenv
-- Jupyter Notebook
+CSV → Python → Gemini AI → Classificação → CSV final
 
 ---
 
 # Estrutura do projeto
+
 ClassificadorSuporteIA
 │
 ├── data
@@ -57,35 +80,26 @@ ClassificadorSuporteIA
 │
 ├── requirements.txt
 ├── .env
+├── .gitignore
 └── README.md
 
 
 ---
 
-# Funcionamento
-
-O fluxo de processamento funciona da seguinte forma:
-
-1. O sistema lê os chamados do arquivo `chamados.csv`
-2. Cada chamado é enviado para a API do Gemini
-3. A IA analisa o assunto e a descrição
-4. O sistema retorna:
-   - categoria do chamado
-   - sugestão de solução
-5. Os resultados são salvos em `chamados_finalizados.csv`
-
----
-
 # Exemplo de entrada
+
+Arquivo `chamados.csv`
 
 | id | assunto | descricao |
 |----|--------|-----------|
-| 1 | Erro de Login | Usuário não consegue acessar o sistema |
+| 1 | Erro de login | Usuário não consegue acessar o sistema |
 | 2 | VPN não conecta | Funcionário remoto sem acesso à rede |
 
 ---
 
 # Exemplo de saída
+
+Arquivo `chamados_finalizados.csv`
 
 | id | categoria_ia | solucao_sugerida |
 |----|--------------|------------------|
@@ -94,9 +108,83 @@ O fluxo de processamento funciona da seguinte forma:
 
 ---
 
+# Tecnologias utilizadas
+
+- Python
+- Pandas
+- Google Gemini API
+- Pydantic
+- Python Dotenv
+- Jupyter Notebook
+
+---
+
 # Como executar o projeto
 
-### 1. Clonar o repositório
+### 1️⃣ Clonar o repositório
 
-```bash
-git clone https://github.com/seuusuario/ClassificadorSuporteIA.git
+git clone https://github.com/Dkarllos14/ClassificadorSuporteIA.git
+
+### 2️⃣ Entrar na pasta do projeto
+
+cd ClassificadorSuporteIA
+
+### 3️⃣ Criar ambiente virtual
+
+python -m venv venv
+
+### 4️⃣ Ativar ambiente virtual
+
+Windows:
+venv\Scripts\activate
+
+---
+
+### 5️⃣ Instalar dependências
+
+pip install -r requirements.txt
+
+---
+
+### 6️⃣ Configurar chave da API
+
+Crie um arquivo `.env` na raiz do projeto:
+
+GOOGLE_API_KEY=AIzaSyBEl5RNeMwSZwkr2INtVVCsO5In5Ur_rk0
+
+---
+
+### 7️⃣ Executar o classificador
+
+python src/main.py
+
+---
+
+# Possíveis melhorias futuras
+
+- Dashboard de análise de chamados
+- API REST para classificação de tickets
+- Integração com sistemas de Service Desk
+- Treinamento de modelo especializado
+- Análise estatística dos chamados
+
+---
+
+# Autor
+
+**Dayson Carlos de Lima**
+
+[LinkedIn](https://www.linkedin.com/in/dayson-carlos-205911246)
+Graduado em Análise e Desenvolvimento de Sistemas
+Profissional com experiência em infraestrutura de TI, com foco em:
+
+- Infraestrutura de TI
+- Automação de processos
+- Análise de dados
+- Inteligência Artificial aplicada
+
+Interesses técnicos:
+
+- Automação com Python
+- Análise de dados
+- Inteligência Artificial aplicada
