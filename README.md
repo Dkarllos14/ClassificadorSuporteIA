@@ -55,6 +55,8 @@ Arquivo CSV com resultados
 Ou de forma simplificada:
 
 CSV → Python → Gemini AI → Classificação → CSV final
+
+
 ---
 
 # 📂 Estrutura do projeto
@@ -81,6 +83,7 @@ ClassificadorSuporteIA
 ├── .env
 ├── .gitignore
 └── README.md
+
 
 ---
 
@@ -124,27 +127,18 @@ Arquivo **chamados_finalizados.csv**
 ```bash
 git clone https://github.com/Dkarllos14/ClassificadorSuporteIA.git
 
-2️⃣ Entrar na pasta do projeto
 
+2️⃣ Entrar na pasta do projeto
 cd ClassificadorSuporteIA
 
 3️⃣ Criar ambiente virtual
-
 python -m venv venv
 
 4️⃣ Ativar ambiente virtual
-
 Windows:
 venv\Scripts\activate
 
 5️⃣ Instalar dependências
-
-pip install -r requirements.txt
-
-
-6️⃣ Configurar chave da API
-
-Crie um arquivo .env na raiz do projeto:
 GOOGLE_API_KEY=SUA_CHAVE_AQUI
 
 7️⃣ Executar o projeto
@@ -163,24 +157,24 @@ Treinamento de modelo especializado
 
 Análise estatística dos chamados
 
----
+Detecção automática de incidentes
 
-# Autor
 
-**Dayson Carlos de Lima**
+👨‍💻 Autor
 
-[LinkedIn](https://www.linkedin.com/in/dayson-carlos-205911246)
-Graduado em Análise e Desenvolvimento de Sistemas
+Dayson Carlos de Lima
+
+Graduado em Análise e Desenvolvimento de Sistemas.
+
 Profissional com experiência em infraestrutura de TI, com foco em:
 
-Automação com Python
+Automações com Python
 
 Análise de dados
 
 Inteligência Artificial aplicada
 
-Interesses técnicos:
+Infraestrutura de TI
 
-- Automação com Python
-- Análise de dados
-- Inteligência Artificial aplicada
+🔗 LinkedIn
+https://www.linkedin.com/in/dayson-carlos-205911246
