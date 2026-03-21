@@ -21,6 +21,13 @@ client = None
 if GEMINI_API_KEY:
     client = genai.Client(api_key=GEMINI_API_KEY)
 
+@router.get("/")
+def home():
+    return {
+        "mensagem": "API ClassificadorSuporteIA está online 🚀",
+        "docs": "/docs",
+        "health": "/health"
+    }
 
 @router.get("/health")
 def health():
