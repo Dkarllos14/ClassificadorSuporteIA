@@ -1,141 +1,68 @@
-# 🤖 Classificador de Chamados de Suporte com IA
+# 🚀 ClassificadorSuporteIA
 
-![Python](https://img.shields.io/badge/Python-3.10+-blue)
-![AI](https://img.shields.io/badge/AI-Google%20Gemini-orange)
-![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
-
-Projeto de automação desenvolvido em **Python** que utiliza a **API do Google Gemini** para classificar automaticamente chamados de suporte técnico.
-
-O sistema analisa o **assunto** e a **descrição** de cada chamado e retorna:
-
-- 📂 Categoria do chamado  
-- ⚠️ Prioridade do incidente  
-- 🛠️ Sugestão de solução técnica  
-
-Este projeto simula um cenário real de **Service Desk**, utilizando **Inteligência Artificial** para auxiliar na triagem e categorização de tickets.
+Sistema de classificação inteligente de chamados de suporte utilizando Inteligência Artificial (Gemini API) e FastAPI.
 
 ---
 
-# 🎯 Objetivo
+## 📌 Sobre o Projeto
 
-Este projeto foi desenvolvido como parte de um **portfólio técnico** focado em:
+O **ClassificadorSuporteIA** é uma API que recebe chamados de suporte técnico e utiliza IA para classificá-los automaticamente em:
 
-- Automação de processos de suporte
-- Aplicação de Inteligência Artificial em TI
-- Manipulação e análise de dados com Python
-- Classificação automática de tickets de suporte
+- Categoria
+- Prioridade
+- Impacto
+- Solução sugerida
 
----
-
-# 🧠 Categorias utilizadas
-
-As categorias atualmente utilizadas são:
-
-- 🌐 REDES
-- 💻 HARDWARE
-- 🧩 SOFTWARE
+Além disso, o sistema armazena os chamados em banco de dados SQLite e permite consultas com filtros e paginação.
 
 ---
 
-# ⚙️ Fluxo do sistema
+## 🧠 Tecnologias Utilizadas
 
-O funcionamento do sistema segue o fluxo abaixo:
-
-CSV de chamados
-↓
-Script Python
-↓
-API Google Gemini
-↓
-Classificação automática
-↓
-Arquivo CSV com resultados
-
-
-Ou de forma simplificada:
-
-CSV → Python → Gemini AI → Classificação → CSV final
-
+- Python 3.13
+- FastAPI
+- Google Gemini API
+- SQLite
+- Pydantic
+- Uvicorn
 
 ---
 
-# 📂 Estrutura do projeto
+## 📂 Estrutura do Projeto
 
 ClassificadorSuporteIA
 │
-├── data
-│ ├── chamados.csv
-│ └── chamados_finalizados.csv
+├── app
+│ ├── core # Configuração e banco de dados
+│ ├── models # Schemas Pydantic
+│ ├── routes # Endpoints da API
+│ ├── services # Lógica de negócio
+│ └── main.py # Inicialização da API
 │
-├── docs
+├── data # Arquivos CSV (opcional)
+├── scripts # Scripts auxiliares
+├── tests # Testes
 │
-├── notebooks
-│ └── exploracao_dados.ipynb
-│
-├── src
-│ ├── main.py
-│ ├── classifier.py
-│ ├── config.py
-│ ├── utils.py
-│ └── teste_modelos.py
-│
+├── database.db # Banco SQLite
+├── .env # Variáveis de ambiente
 ├── requirements.txt
-├── .env
-├── .gitignore
 └── README.md
 
 
 ---
 
-# 📊 Exemplo de entrada
-
-Arquivo **chamados.csv**
-
-| id | assunto | descricao |
-|----|--------|-----------|
-| 1 | Erro de login | Usuário não consegue acessar o sistema |
-| 2 | VPN não conecta | Funcionário remoto sem acesso à rede |
-
----
-
-# 📈 Exemplo de saída
-
-Arquivo **chamados_finalizados.csv**
-
-| id | categoria_ia | prioridade_ia | solucao_sugerida |
-|----|--------------|---------------|------------------|
-| 1 | SOFTWARE | MEDIA | Verificar credenciais e redefinir senha |
-| 2 | REDES | ALTA | Validar configuração da VPN |
-
----
-
-# 🛠️ Tecnologias utilizadas
-
-- Python
-- Pandas
-- Google Gemini API
-- Pydantic
-- Python Dotenv
-- Jupyter Notebook
-
----
-
-# 🚀 Como executar o projeto
+## ⚙️ Como Executar o Projeto
 
 ### 1️⃣ Clonar o repositório
 
 ```bash
-git clone https://github.com/Dkarllos14/ClassificadorSuporteIA.git
-
-
-2️⃣ Entrar na pasta do projeto
+git clone <URL_DO_REPOSITORIO>
 cd ClassificadorSuporteIA
 
-3️⃣ Criar ambiente virtual
-python -m venv venv
 
-4️⃣ Ativar ambiente virtual
-Windows:
+2️⃣ Criar ambiente virtual
+
+python -m venv venv
 venv\Scripts\activate
 
 5️⃣ Instalar dependências
