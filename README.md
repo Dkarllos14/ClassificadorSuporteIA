@@ -1,7 +1,16 @@
 # 🚀 ClassificadorSuporteIA
 
-Sistema de classificação inteligente de chamados de suporte utilizando Inteligência Artificial (Gemini API) e FastAPI.
 
+![Python](https://img.shields.io/badge/Python-3.13-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-Framework-green)
+![SQLite](https://img.shields.io/badge/Database-SQLite-lightgrey)
+![AI](https://img.shields.io/badge/AI-Gemini-orange)
+![Status](https://img.shields.io/badge/Status-MVP-success)
+
+
+API inteligente para classificação automática de chamados de suporte utilizando Inteligência Artificial (Google Gemini).
+
+O sistema é capaz de analisar descrições de problemas e classificá-los automaticamente em categoria, prioridade e impacto, além de sugerir soluções — reduzindo o tempo de triagem manual e aumentando a eficiência operacional.
 ---
 
 ## 📌 Sobre o Projeto
