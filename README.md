@@ -6,203 +6,134 @@
 ![AI](https://img.shields.io/badge/AI-Gemini-orange)
 ![Status](https://img.shields.io/badge/Status-MVP-success)
 
-API inteligente para classificação automática de chamados de suporte utilizando Inteligência Artificial (Google Gemini).
+API inteligente para **classificação automática de chamados de suporte técnico**, utilizando **IA generativa (Google Gemini)** para identificar categoria, prioridade e impacto.
 
-O sistema é capaz de analisar descrições de problemas e classificá-los automaticamente em categoria, prioridade e impacto, além de sugerir soluções, reduzindo o tempo de triagem manual e aumentando a eficiência operacional.
+> 🔥 Projeto focado em automação de processos de Service Desk e ganho de eficiência operacional.
 
 ---
 
-## 📌 Sobre o Projeto
+## 🌐 API Online
 
-O **ClassificadorSuporteIA** é uma API que recebe chamados de suporte técnico e utiliza IA para classificá-los automaticamente em:
+🔗 **Acesse a API em produção:**  
+👉 https://SEU-PROJETO.onrender.com
 
-- Categoria
-- Prioridade
-- Impacto
-- Solução sugerida
+📄 **Documentação interativa (Swagger):**  
+👉 https://SEU-PROJETO.onrender.com/docs
 
-Além disso, o sistema armazena os chamados em banco de dados SQLite e permite consultas com filtros e paginação.
+---
+
+## ⚡ Demonstração Rápida
+
+A API recebe um chamado de suporte e retorna automaticamente:
+
+- Categoria (ex: Acesso, Rede, Hardware)
+- Prioridade (Baixa, Média, Alta)
+- Impacto (Baixo, Médio, Alto)
+- Sugestão de solução
+
+---
+
+## 📸 Documentação da API
+
+> Interface interativa para testes dos endpoints
+
+![Swagger Preview](docs-preview.png)
+
+📌 **Como adicionar essa imagem:**
+- Tire um print da tela: `http://SEU-PROJETO.onrender.com/docs`
+- Salve como: `docs-preview.png`
+- Coloque o arquivo na **raiz do projeto (mesmo nível do README.md)**
 
 ---
 
 ## 🧠 Tecnologias Utilizadas
 
-- Python 3.13
-- FastAPI
-- Google Gemini API
-- SQLite
-- Pydantic
-- Uvicorn
+- ⚡ FastAPI
+- 🤖 Google Gemini (IA)
+- 🗄 SQLite
+- 🚀 Render (Deploy)
+- 🐍 Python
 
 ---
 
-## 📂 Estrutura do Projeto
+## 📌 Funcionalidades
 
-```text
-ClassificadorSuporteIA
-│
-├── app
-│   ├── core          # Configuração e banco de dados
-│   ├── models        # Schemas Pydantic
-│   ├── routes        # Endpoints da API
-│   ├── services      # Lógica de negócio
-│   └── main.py       # Inicialização da API
-│
-├── data              # Arquivos CSV (opcional)
-├── scripts           # Scripts auxiliares
-├── tests             # Testes
-│
-├── database.db       # Banco SQLite
-├── .env              # Variáveis de ambiente
-├── requirements.txt
-└── README.md
+✔ Classificação automática de chamados  
+✔ Processamento individual e em lote  
+✔ Persistência em banco de dados  
+✔ Filtros e paginação  
+✔ Busca por ID  
+✔ API REST documentada  
 
-⚙️ Como Executar o Projeto
+---
 
-1️⃣ Clonar o repositório
-git clone <URL_DO_REPOSITORIO>
-cd ClassificadorSuporteIA
+## 📥 Exemplo de Uso
 
+### 🔹 Requisição - POST `/classificar`
 
-2️⃣ Criar ambiente virtual
-
-python -m venv venv
-venv\Scripts\activate
-
-3️⃣ Instalar dependências
-pip install -r requirements.txt
-
-4️⃣ Configurar variáveis de ambiente
-
-Crie um arquivo .env:
-
-GEMINI_API_KEY=sua_chave_aqui
-MODEL_NAME=gemini-2.5-flash
-
-5️⃣ Executar a API
-uvicorn app.main:app --reload --port 8001
-
-
-📡 Endpoints da API
-🔹 Health Check
-GET /health
-🔹 Classificar chamado
-POST /classificar
-
-Exemplo de entrada:
-
+```json
 {
   "assunto": "Erro de login",
-  "descricao": "Usuário não consegue acessar o sistema"
+  "descricao": "Usuário não consegue acessar o sistema corporativo."
 }
-
-
-🔹 Classificar múltiplos chamados (Batch)
-POST /classificar-lote
-
-Exemplo:
-
+🔹 Resposta da API
 {
-  "chamados": [
-    {
-      "assunto": "Erro de login",
-      "descricao": "Usuário não consegue acessar o sistema"
-    },
-    {
-      "assunto": "Internet lenta",
-      "descricao": "Usuários relatam lentidão"
-    }
-  ]
+  "categoria": "Acesso",
+  "prioridade": "Alta",
+  "impacto": "Alto",
+  "solucao": "Verificar credenciais, redefinir senha ou checar autenticação MFA."
 }
+📦 Classificação em Lote
+🔹 Requisição - POST /classificar-lote
+[
+  {
+    "assunto": "Internet lenta",
+    "descricao": "Usuário relata lentidão ao acessar sistemas."
+  },
+  {
+    "assunto": "Erro no sistema",
+    "descricao": "Aplicação retorna erro ao salvar dados."
+  }
+]
+🔹 Resposta
+[
+  {
+    "categoria": "Rede",
+    "prioridade": "Média",
+    "impacto": "Médio",
+    "solucao": "Verificar conectividade e desempenho da rede."
+  },
+  {
+    "categoria": "Sistema",
+    "prioridade": "Alta",
+    "impacto": "Alto",
+    "solucao": "Analisar logs da aplicação e possíveis falhas no backend."
+  }
+]
+🧩 Endpoints Disponíveis
+Método	Endpoint	Descrição
+GET	/health	Status da API
+POST	/classificar	Classificação individual
+POST	/classificar-lote	Classificação em lote
+GET	/chamados	Listagem com filtros
+GET	/chamados/{id}	Busca por ID
+🎯 Diferenciais do Projeto
 
+💡 Uso de IA para tomada de decisão automatizada
+⚡ Redução do tempo de triagem de chamados
+📊 Estrutura pronta para integração com sistemas de Service Desk
+🚀 Deploy real (não é apenas projeto local)
 
-🔹 Listar chamados
-
-GET /chamados
-
-Filtros disponíveis:
-
-GET /chamados?categoria=ACESSO
-GET /chamados?prioridade=ALTA
-GET /chamados?categoria=ACESSO&prioridade=ALTA
-
-
-🔹 Paginação
-
-GET /chamados?limit=10&offset=0
-
-
-🔹 Buscar chamado por ID
-
-GET /chamados/{id}
-
-
-🗄️ Banco de Dados
-
-O projeto utiliza SQLite, com a tabela chamados.
-
-Campos:
-
-id
-assunto
-descricao
-categoria
-prioridade
-impacto
-solucao
-criado_em
-
-
-🤖 Inteligência Artificial
-
-A classificação é realizada utilizando a API do Google Gemini, com prompts estruturados para garantir:
-
-respostas padronizadas
-retorno em JSON
-consistência dos dados
-💼 Aplicação no Mundo Real
-
-Este projeto pode ser utilizado em:
-
-Service Desk corporativo
-Centrais de atendimento
-Sistemas de suporte técnico
-Automação de triagem de tickets
-Plataformas SaaS de atendimento
-
-Reduzindo significativamente o tempo de resposta e eliminando erros humanos na classificação de chamados.
-
-
-📊 Possíveis Evoluções
-Dashboard web (React ou Streamlit)
-Autenticação de usuários
-Integração com sistemas de tickets (GLPI, ServiceNow)
-Deploy em nuvem (Render, Railway, Docker)
-Cache de respostas
-Processamento paralelo no batch
-
+📈 Possibilidades de Evolução
+Integração com sistemas de chamados (GLPI, ServiceNow)
+Dashboard com métricas
+Autenticação e controle de usuários
+Treinamento de modelo personalizado
 👨‍💻 Autor
 
 Dayson Carlos de Lima
+🔗 https://www.linkedin.com/in/dayson-carlos-205911246
 
-Graduado em Análise e Desenvolvimento de Sistemas
-Profissional com experiência em Infraestrutura de TI e gestão de incidentes
-Certificado em Inteligência Artificial pelo Google
-Foco em automação, APIs e IA aplicada
+⭐ Status do Projeto
 
-🔗 LinkedIn: https://www.linkedin.com/in/dayson-carlos-205911246
-
-
-
-📌 Objetivo do Projeto
-
-Demonstrar aplicação prática de:
-
-APIs com FastAPI
-Integração com IA
-Arquitetura de software
-Persistência de dados
-
-⭐ Observação
-
-Este projeto pode ser expandido para um sistema completo de Service Desk Inteligente, com classificação automática e sugestão de resolução de chamados.
+🚀 Projeto funcional e em evolução contínua
