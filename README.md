@@ -15,10 +15,10 @@ API inteligente para **classificação automática de chamados de suporte técni
 ## 🌐 API Online
 
 🔗 **Acesse a API em produção:**  
-👉 https://SEU-PROJETO.onrender.com
+👉 https://classificadorsuporteia.onrender.com
 
 📄 **Documentação interativa (Swagger):**  
-👉 https://SEU-PROJETO.onrender.com/docs
+👉 https://lassificadorsuporteia.onrender.com/docs
 
 ---
 
