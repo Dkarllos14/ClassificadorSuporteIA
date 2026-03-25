@@ -18,7 +18,7 @@ API inteligente para **classificação automática de chamados de suporte técni
 👉 https://classificadorsuporteia.onrender.com
 
 📄 **Documentação interativa (Swagger):**  
-👉 https://lassificadorsuporteia.onrender.com/docs
+👉 https://classificadorsuporteia.onrender.com/docs
 
 ---
 
