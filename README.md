@@ -6,9 +6,8 @@
 ![AI](https://img.shields.io/badge/AI-Gemini-orange)
 ![Status](https://img.shields.io/badge/Status-MVP-success)
 
-API inteligente para **classificação automática de chamados de suporte técnico**, utilizando **IA generativa (Google Gemini)** para identificar categoria, prioridade e impacto.
-
-> 🔥 Projeto focado em automação de processos de Service Desk e ganho de eficiência operacional.
+API inteligente para classificação automática de chamados de suporte técnico utilizando IA generativa (Google Gemini).
+Automatize a triagem de chamados, reduza o tempo de resposta e aumente a eficiência operacional com inteligência artificial aplicada.
 
 ---
 
@@ -26,9 +25,9 @@ API inteligente para **classificação automática de chamados de suporte técni
 
 ---
 
-## ⚡ Demonstração Rápida
+## ⚡ Demonstração Real da API em Produção
 
-A API recebe um chamado de suporte e retorna automaticamente:
+Exemplo de execução do endpoint `/classificar` em ambiente real:
 
 - Categoria (ex: Acesso, Rede, Hardware)
 - Prioridade (Baixa, Média, Alta)
@@ -43,12 +42,18 @@ A API recebe um chamado de suporte e retorna automaticamente:
 
 ![Swagger Preview](docs-preview.png)
 
-📌 **Como adicionar essa imagem:**
-- Tire um print da tela: `http://SEU-PROJETO.onrender.com/docs`
-- Salve como: `docs-preview.png`
-- Coloque o arquivo na **raiz do projeto (mesmo nível do README.md)**
-
 ---
+## 🏗️ Arquitetura
+
+A aplicação segue uma arquitetura em camadas:
+
+- **Routes** → definição dos endpoints
+- **Services** → lógica de negócio e integração com IA
+- **Models** → schemas e validação
+- **Core** → configuração e banco de dados
+
+Fluxo:
+Cliente → API FastAPI → Serviço de IA → Banco → Resposta
 
 ## 🧠 Tecnologias Utilizadas
 
@@ -77,8 +82,12 @@ A API recebe um chamado de suporte e retorna automaticamente:
 
 ```json
 {
+"chamados": [
+{
   "assunto": "Erro de login",
   "descricao": "Usuário não consegue acessar o sistema corporativo."
+}
+]
 }
 🔹 Resposta da API
 {
@@ -137,6 +146,17 @@ Treinamento de modelo personalizado
 
 Dayson Carlos de Lima
 🔗 https://www.linkedin.com/in/dayson-carlos-205911246
+
+## 💼 Aplicação no Mundo Real
+
+Este projeto pode ser utilizado em:
+
+- Centrais de Service Desk
+- Automação de triagem de chamados
+- Plataformas SaaS de atendimento
+- Suporte técnico corporativo
+
+Reduzindo tempo de resposta e aumentando eficiência operacional.
 
 ⭐ Status do Projeto
 
