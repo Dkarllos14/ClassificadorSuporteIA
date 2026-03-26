@@ -92,11 +92,11 @@ Cliente → API FastAPI → Serviço de IA → Banco → Resposta
 🔹 Requisição - POST /classificar-lote
 [
   {
-    "assunto": "Internet lenta",
+    "chamados": "Internet lenta",
     "descricao": "Usuário relata lentidão ao acessar sistemas."
   },
   {
-    "assunto": "Erro no sistema",
+    "chamados": "Erro no sistema",
     "descricao": "Aplicação retorna erro ao salvar dados."
   }
 ]
