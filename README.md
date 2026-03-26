@@ -16,9 +16,13 @@ API inteligente para **classificação automática de chamados de suporte técni
 
 🔗 **Acesse a API em produção:**  
 👉 https://classificadorsuporteia.onrender.com
+<img width="1389" height="497" alt="Documentação da API" src="https://github.com/user-attachments/assets/d5018bec-3795-4a0e-b877-c7202c0a9928" />
+
 
 📄 **Documentação interativa (Swagger):**  
 👉 https://classificadorsuporteia.onrender.com/docs
+## ⚡ Demonstração Real da API
+<img width="1335" height="664" alt="docs-preview" src="https://github.com/user-attachments/assets/f24493aa-b1c8-4ca3-b703-5ba0afdba451" />
 
 ---
 
