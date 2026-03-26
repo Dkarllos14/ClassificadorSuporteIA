@@ -19,11 +19,8 @@ Automatize a triagem de chamados, reduza o tempo de resposta e aumente a eficiê
 
 
 📄 **Documentação interativa (Swagger):**  
+> Interface interativa para testes dos endpoints
 👉 https://classificadorsuporteia.onrender.com/docs
-## ⚡ Demonstração Real da API
-<img width="1335" height="664" alt="docs-preview" src="https://github.com/user-attachments/assets/f24493aa-b1c8-4ca3-b703-5ba0afdba451" />
-
----
 
 ## ⚡ Demonstração Real da API em Produção
 
@@ -34,15 +31,10 @@ Exemplo de execução do endpoint `/classificar` em ambiente real:
 - Impacto (Baixo, Médio, Alto)
 - Sugestão de solução
 
----
-
-## 📸 Documentação da API
-
-> Interface interativa para testes dos endpoints
-
-![Swagger Preview](docs-preview.png)
+<img width="1335" height="664" alt="docs-preview" src="https://github.com/user-attachments/assets/f24493aa-b1c8-4ca3-b703-5ba0afdba451" />
 
 ---
+
 ## 🏗️ Arquitetura
 
 A aplicação segue uma arquitetura em camadas:
