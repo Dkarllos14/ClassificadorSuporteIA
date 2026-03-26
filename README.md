@@ -75,11 +75,11 @@ Cliente → API FastAPI → Serviço de IA → Banco → Resposta
 ```json
 {
 "chamados": [
-{
+  {
   "assunto": "Erro de login",
   "descricao": "Usuário não consegue acessar o sistema corporativo."
-}
-]
+  }
+ ]
 }
 🔹 Resposta da API
 {
