@@ -11,3 +11,12 @@ def startup():
 
 
 app.include_router(chamados_router)
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # depois podemos restringir
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
