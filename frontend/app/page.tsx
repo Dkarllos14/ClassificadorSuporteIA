@@ -1,159 +1,117 @@
-"use client";
+import Link from "next/link";
+import AppHeader from "../components/app-header";
 
-import { useState } from "react";
-
-type ResultadoClassificacao = {
-  categoria: string;
-  prioridade: string;
-  impacto: string;
-  solucao: string;
-};
-
-export default function Home() {
-  const [assunto, setAssunto] = useState("");
-  const [descricao, setDescricao] = useState("");
-  const [resultado, setResultado] = useState<ResultadoClassificacao | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [erro, setErro] = useState("");
-
-  const handleClassificar = async () => {
-    setErro("");
-    setResultado(null);
-
-    if (!assunto.trim() || !descricao.trim()) {
-      setErro("Preencha o assunto e a descrição.");
-      return;
-    }
-
-    setLoading(true);
-
-    try {
-      const response = await fetch(
-        "https://classificadorsuporteia.onrender.com/classificar",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            assunto,
-            descricao,
-          }),
-        }
-      );
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.detail || "Erro ao classificar chamado.");
-      }
-
-      setResultado(data);
-    } catch (error) {
-      const mensagem =
-        error instanceof Error ? error.message : "Erro inesperado.";
-      setErro(mensagem);
-    } finally {
-      setLoading(false);
-    }
-  };
-
+export default function HomePage() {
   return (
-    <main className="min-h-screen bg-slate-100 px-4 py-10">
-      <div className="mx-auto max-w-3xl">
-        <header className="mb-8">
-          <h1 className="text-4xl font-bold text-slate-900">
-            ClassificadorSuporteIA
-          </h1>
-          <p className="mt-2 text-slate-600">
-            Classifique chamados com IA usando sua API em produção.
-          </p>
-        </header>
+    <>
+      <AppHeader />
 
-        <section className="rounded-2xl bg-white p-6 shadow-sm">
-          <h2 className="mb-4 text-xl font-semibold text-slate-900">
-            Novo chamado
-          </h2>
+      <main className="min-h-screen bg-slate-950 text-white">
+        <section className="mx-auto flex max-w-7xl flex-col px-6 py-12 md:px-10 lg:px-12">
+          <div className="mb-10">
+            <p className="text-sm font-medium uppercase tracking-[0.2em] text-cyan-400">
+              ClassificadorSuporteIA
+            </p>
 
-          <div className="space-y-4">
-            <div>
-              <label className="mb-1 block text-sm font-medium text-slate-700">
-                Assunto
-              </label>
-              <input
-                type="text"
-                value={assunto}
-                onChange={(e) => setAssunto(e.target.value)}
-                placeholder="Ex: Erro de login no ERP"
-                className="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:border-blue-500"
-              />
-            </div>
+            <h1 className="mt-3 max-w-4xl text-4xl font-bold tracking-tight text-white md:text-6xl">
+              Classificação inteligente de chamados com IA
+            </h1>
 
-            <div>
-              <label className="mb-1 block text-sm font-medium text-slate-700">
-                Descrição
-              </label>
-              <textarea
-                value={descricao}
-                onChange={(e) => setDescricao(e.target.value)}
-                placeholder="Descreva o problema do usuário..."
-                rows={5}
-                className="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:border-blue-500"
-              />
-            </div>
+            <p className="mt-5 max-w-3xl text-base leading-7 text-slate-300">
+              Plataforma full stack desenvolvida para automatizar a triagem de
+              chamados de suporte técnico. O sistema utiliza Inteligência Artificial
+              para classificar solicitações, definir prioridade, identificar impacto
+              e sugerir uma solução inicial, trazendo mais velocidade, padronização
+              e apoio operacional para ambientes de atendimento.
+            </p>
+          </div>
 
-            <button
-              onClick={handleClassificar}
-              disabled={loading}
-              className="rounded-lg bg-blue-600 px-4 py-2 font-medium text-white hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-70"
-            >
-              {loading ? "Classificando..." : "Classificar com IA"}
-            </button>
+          <div className="grid gap-6 lg:grid-cols-[1.3fr_0.7fr]">
+            <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur">
+              <span className="inline-flex rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-sm text-cyan-300">
+                Sistema full stack com IA
+              </span>
 
-            {erro && (
-              <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-red-700">
-                {erro}
+              <h2 className="mt-6 text-2xl font-semibold text-white md:text-4xl">
+                Um projeto prático para transformar triagem manual em processo inteligente.
+              </h2>
+
+              <p className="mt-4 max-w-2xl leading-7 text-slate-300">
+                O projeto integra backend em FastAPI, classificação automática com
+                Google Gemini, persistência em banco SQLite e frontend em Next.js
+                com Tailwind, servindo como demonstração real de aplicação de IA em
+                suporte técnico e service desk.
+              </p>
+
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+                <Link
+                  href="/classificar"
+                  className="inline-flex items-center justify-center rounded-2xl bg-cyan-500 px-6 py-4 font-semibold text-slate-950 transition hover:bg-cyan-400"
+                >
+                  Classificar Chamado
+                </Link>
+
+                <Link
+                  href="/historico"
+                  className="inline-flex items-center justify-center rounded-2xl border border-white/15 bg-white/5 px-6 py-4 font-semibold text-white transition hover:bg-white/10"
+                >
+                  Ver Histórico
+                </Link>
               </div>
-            )}
+            </div>
+
+            <div className="grid gap-4">
+              <div className="rounded-3xl border border-white/10 bg-slate-900/80 p-6">
+                <h3 className="text-lg font-semibold text-white">
+                  Classificação padronizada
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-slate-300">
+                  Reduz inconsistências na triagem com definição automatizada de
+                  categoria, prioridade e impacto.
+                </p>
+              </div>
+
+              <div className="rounded-3xl border border-white/10 bg-slate-900/80 p-6">
+                <h3 className="text-lg font-semibold text-white">
+                  Histórico operacional
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-slate-300">
+                  Permite consultar chamados processados, filtros e indicadores
+                  visuais para análise da operação.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-10 grid gap-4 md:grid-cols-3">
+            <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
+              <p className="text-sm font-medium text-cyan-300">Backend</p>
+              <p className="mt-2 text-sm leading-6 text-slate-300">
+                API em FastAPI com endpoints para classificação individual, em lote,
+                consulta, filtros e paginação.
+              </p>
+            </div>
+
+            <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
+              <p className="text-sm font-medium text-cyan-300">
+                Inteligência Artificial
+              </p>
+              <p className="mt-2 text-sm leading-6 text-slate-300">
+                Integração com Google Gemini para apoiar a tomada de decisão e
+                acelerar a triagem de chamados.
+              </p>
+            </div>
+
+            <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
+              <p className="text-sm font-medium text-cyan-300">Frontend</p>
+              <p className="mt-2 text-sm leading-6 text-slate-300">
+                Interface moderna em Next.js preparada para evoluir como produto
+                profissional com experiência SaaS.
+              </p>
+            </div>
           </div>
         </section>
-
-        {resultado && (
-          <section className="mt-6 rounded-2xl bg-white p-6 shadow-sm">
-            <h2 className="mb-4 text-xl font-semibold text-slate-900">
-              Resultado da classificação
-            </h2>
-
-            <div className="grid gap-3 sm:grid-cols-3">
-              <div className="rounded-xl bg-slate-50 p-4">
-                <p className="text-sm text-slate-500">Categoria</p>
-                <p className="mt-1 font-semibold text-slate-900">
-                  {resultado.categoria}
-                </p>
-              </div>
-
-              <div className="rounded-xl bg-slate-50 p-4">
-                <p className="text-sm text-slate-500">Prioridade</p>
-                <p className="mt-1 font-semibold text-slate-900">
-                  {resultado.prioridade}
-                </p>
-              </div>
-
-              <div className="rounded-xl bg-slate-50 p-4">
-                <p className="text-sm text-slate-500">Impacto</p>
-                <p className="mt-1 font-semibold text-slate-900">
-                  {resultado.impacto}
-                </p>
-              </div>
-            </div>
-
-            <div className="mt-4 rounded-xl bg-slate-50 p-4">
-              <p className="text-sm text-slate-500">Solução sugerida</p>
-              <p className="mt-1 text-slate-900">{resultado.solucao}</p>
-            </div>
-          </section>
-        )}
-      </div>
-    </main>
+      </main>
+    </>
   );
 }
