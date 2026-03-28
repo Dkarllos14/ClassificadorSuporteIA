@@ -1,7 +1,70 @@
+"use client";
+
 import Link from "next/link";
-import AppHeader from "../components/app-header";
+import { useEffect, useMemo, useState } from "react";
+import AppHeader from "@/components/app-header";
+
+type Chamado = {
+  id: number;
+  assunto: string;
+  descricao: string;
+  categoria: string;
+  prioridade: string;
+  impacto: string;
+  solucao: string;
+};
 
 export default function HomePage() {
+  const [chamados, setChamados] = useState<Chamado[]>([]);
+  const [loadingMetricas, setLoadingMetricas] = useState(true);
+  const [erroMetricas, setErroMetricas] = useState("");
+
+  useEffect(() => {
+    const buscarChamados = async () => {
+      setLoadingMetricas(true);
+      setErroMetricas("");
+
+      try {
+        const response = await fetch(
+          "https://classificadorsuporteia.onrender.com/chamados?limit=100&offset=0"
+        );
+
+        if (!response.ok) {
+          throw new Error("Erro ao carregar métricas.");
+        }
+
+        const data = await response.json();
+        setChamados(data);
+      } catch (error) {
+        console.error("Erro ao carregar métricas da home:", error);
+        setErroMetricas("Não foi possível carregar as métricas no momento.");
+      } finally {
+        setLoadingMetricas(false);
+      }
+    };
+
+    buscarChamados();
+  }, []);
+
+  const metricas = useMemo(() => {
+    const totalChamados = chamados.length;
+
+    const altaOuCritica = chamados.filter(
+      (chamado) =>
+        chamado.prioridade === "ALTA" || chamado.prioridade === "CRITICA"
+    ).length;
+
+    const categoriaAcesso = chamados.filter(
+      (chamado) => chamado.categoria === "ACESSO"
+    ).length;
+
+    return {
+      totalChamados,
+      altaOuCritica,
+      categoriaAcesso,
+    };
+  }, [chamados]);
+
   return (
     <>
       <AppHeader />
@@ -82,6 +145,65 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+
+          <section className="mt-10">
+            <div className="mb-4">
+              <h2 className="text-2xl font-semibold text-white">
+                Visão geral da operação
+              </h2>
+              <p className="mt-1 text-slate-400">
+                Indicadores calculados a partir dos chamados retornados pela API.
+              </p>
+            </div>
+
+            {loadingMetricas ? (
+              <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
+                <p className="text-slate-300">Carregando métricas...</p>
+              </div>
+            ) : erroMetricas ? (
+              <div className="rounded-3xl border border-red-500/20 bg-red-500/10 p-6 text-red-200">
+                {erroMetricas}
+              </div>
+            ) : (
+              <div className="grid gap-4 md:grid-cols-3">
+                <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
+                  <p className="text-sm font-medium text-cyan-300">
+                    Chamados carregados
+                  </p>
+                  <p className="mt-3 text-4xl font-bold text-white">
+                    {metricas.totalChamados}
+                  </p>
+                  <p className="mt-2 text-sm text-slate-400">
+                    Base utilizada para compor os indicadores da home.
+                  </p>
+                </div>
+
+                <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
+                  <p className="text-sm font-medium text-cyan-300">
+                    Alta / Crítica
+                  </p>
+                  <p className="mt-3 text-4xl font-bold text-white">
+                    {metricas.altaOuCritica}
+                  </p>
+                  <p className="mt-2 text-sm text-slate-400">
+                    Chamados com maior urgência operacional.
+                  </p>
+                </div>
+
+                <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
+                  <p className="text-sm font-medium text-cyan-300">
+                    Categoria ACESSO
+                  </p>
+                  <p className="mt-3 text-4xl font-bold text-white">
+                    {metricas.categoriaAcesso}
+                  </p>
+                  <p className="mt-2 text-sm text-slate-400">
+                    Incidentes ligados a login, autenticação e permissão.
+                  </p>
+                </div>
+              </div>
+            )}
+          </section>
 
           <div className="mt-10 grid gap-4 md:grid-cols-3">
             <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
