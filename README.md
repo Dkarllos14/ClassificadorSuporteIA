@@ -6,15 +6,15 @@
 ![AI](https://img.shields.io/badge/AI-Gemini-orange)
 ![Status](https://img.shields.io/badge/Status-MVP-success)
 
-## 🌐 Aplicação Completa
+## 🌐 Acesse o Sistema em Produção
 
-- 🖥️ Frontend (Next.js):  
+- 🖥️ Frontend (Interface completa):  
 👉 https://classificador-suporte-ia-tpa8.vercel.app/
 
 - ⚙️ API (FastAPI):  
 👉 https://classificadorsuporteia.onrender.com
 
-- 📄 Swagger:  
+- 📄 Documentação Swagger:  
 👉 https://classificadorsuporteia.onrender.com/docs
 
 Sistema full stack com Inteligência Artificial para classificação automática de chamados de suporte técnico.
@@ -30,11 +30,11 @@ O projeto simula um ambiente real de Service Desk, automatizando a triagem e aux
 ### 🏠 Home (Dashboard)
 <img width="627" height="671" alt="README home" src="https://github.com/user-attachments/assets/e53ffb39-63d5-4c24-8c74-aa8c59096b50" />
 
-
+---
 ### 🤖 Classificação de Chamados
 <img width="1001" height="532" alt="README classificar" src="https://github.com/user-attachments/assets/bb234922-4c48-4b25-83ba-6f82b7753143" />
 
-
+---
 ### 📂 Histórico de Chamados
 <img width="1002" height="665" alt="README historico" src="https://github.com/user-attachments/assets/0bc7743e-55ff-42c9-8785-97c4cb70167a" />
 
@@ -49,7 +49,7 @@ A aplicação segue uma arquitetura full stack:
 - **IA (Google Gemini)** → Classificação dos chamados
 - **Banco de dados (SQLite)** → Persistência
 
-Fluxo:
+### 🔄 Fluxo da Aplicação
 
 Usuário → Frontend → API FastAPI → IA → Banco → Resposta → Interface
 
@@ -87,12 +87,8 @@ Usuário → Frontend → API FastAPI → IA → Banco → Resposta → Interfac
 
 ```json
 {
-"chamados": [
-  {
   "assunto": "Erro de login",
   "descricao": "Usuário não consegue acessar o sistema corporativo."
-  }
- ]
 }
 🔹 Resposta da API
 {
@@ -137,16 +133,27 @@ GET	/chamados	Listagem com filtros
 GET	/chamados/{id}	Busca por ID
 🎯 Diferenciais do Projeto
 
-💡 Uso de IA para tomada de decisão automatizada
-⚡ Redução do tempo de triagem de chamados
-📊 Estrutura pronta para integração com sistemas de Service Desk
-🚀 Deploy real (não é apenas projeto local)
+---
+
+## 🎯 Diferenciais do Projeto
+
+- 🤖 Uso de Inteligência Artificial na tomada de decisão
+- ⚡ Redução significativa do tempo de triagem de chamados
+- 🌐 Sistema full stack com frontend e backend integrados
+- 📊 Dashboard com métricas operacionais
+- 🚀 Deploy real (produção) com frontend e API online
+- 🧩 Arquitetura modular e escalável
+
+---
 
 📈 Possibilidades de Evolução
 Integração com sistemas de chamados (GLPI, ServiceNow)
 Dashboard com métricas
 Autenticação e controle de usuários
 Treinamento de modelo personalizado
+
+---
+
 👨‍💻 Autor
 
 Dayson Carlos de Lima
@@ -166,5 +173,11 @@ Reduzindo tempo de resposta e aumentando eficiência operacional.
 ## 🎯 Visão do Projeto
 
 Este projeto demonstra a aplicação prática de Inteligência Artificial em ambientes corporativos, com foco em automação de processos, eficiência operacional e construção de sistemas escaláveis.
+
+## 📣 Observação
+
+Este projeto foi desenvolvido com foco em simular um cenário real de mercado, integrando Inteligência Artificial a um fluxo completo de atendimento de suporte técnico.
+
+Não se trata apenas de um estudo isolado, mas de uma aplicação funcional com potencial de evolução para produto SaaS.
 
 Foi desenvolvido com foco em simular um produto real, integrando backend, frontend e IA em um fluxo completo de negócio.
