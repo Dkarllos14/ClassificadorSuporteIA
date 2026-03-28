@@ -6,64 +6,77 @@
 ![AI](https://img.shields.io/badge/AI-Gemini-orange)
 ![Status](https://img.shields.io/badge/Status-MVP-success)
 
-API inteligente para classificação automática de chamados de suporte técnico utilizando IA generativa (Google Gemini).
-Automatize a triagem de chamados, reduza o tempo de resposta e aumente a eficiência operacional com inteligência artificial aplicada.
+## 🌐 Aplicação Completa
+
+- 🖥️ Frontend (Next.js):  
+👉 https://classificador-suporte-ia-tpa8.vercel.app/
+
+- ⚙️ API (FastAPI):  
+👉 https://classificadorsuporteia.onrender.com
+
+- 📄 Swagger:  
+👉 https://classificadorsuporteia.onrender.com/docs
+
+Sistema full stack com Inteligência Artificial para classificação automática de chamados de suporte técnico.
+
+A aplicação permite classificar solicitações automaticamente utilizando IA (Google Gemini), além de fornecer uma interface web para visualização, análise e acompanhamento dos chamados processados.
+
+O projeto simula um ambiente real de Service Desk, automatizando a triagem e auxiliando na tomada de decisão operacional.
 
 ---
 
-## 🌐 API Online
+## 📸 Interface do Sistema
 
-🔗 **Acesse a API em produção:**  
-👉 https://classificadorsuporteia.onrender.com
-<img width="1389" height="497" alt="Documentação da API" src="https://github.com/user-attachments/assets/d5018bec-3795-4a0e-b877-c7202c0a9928" />
+### 🏠 Home (Dashboard)
+<img width="627" height="671" alt="README home" src="https://github.com/user-attachments/assets/e53ffb39-63d5-4c24-8c74-aa8c59096b50" />
 
 
-📄 **Documentação interativa (Swagger):**  
-> Interface interativa para testes dos endpoints
-👉 https://classificadorsuporteia.onrender.com/docs
+### 🤖 Classificação de Chamados
+<img width="1001" height="532" alt="README classificar" src="https://github.com/user-attachments/assets/bb234922-4c48-4b25-83ba-6f82b7753143" />
 
-## ⚡ Demonstração Real da API em Produção
 
-Exemplo de execução do endpoint `/classificar` em ambiente real:
-
-- Categoria (ex: Acesso, Rede, Hardware)
-- Prioridade (Baixa, Média, Alta)
-- Impacto (Baixo, Médio, Alto)
-- Sugestão de solução
-
-<img width="1335" height="664" alt="docs-preview" src="https://github.com/user-attachments/assets/f24493aa-b1c8-4ca3-b703-5ba0afdba451" />
+### 📂 Histórico de Chamados
+<img width="1002" height="665" alt="README historico" src="https://github.com/user-attachments/assets/0bc7743e-55ff-42c9-8785-97c4cb70167a" />
 
 ---
 
 ## 🏗️ Arquitetura
 
-A aplicação segue uma arquitetura em camadas:
+A aplicação segue uma arquitetura full stack:
 
-- **Routes** → definição dos endpoints
-- **Services** → lógica de negócio e integração com IA
-- **Models** → schemas e validação
-- **Core** → configuração e banco de dados
+- **Frontend (Next.js)** → Interface do usuário
+- **Backend (FastAPI)** → API e lógica de negócio
+- **IA (Google Gemini)** → Classificação dos chamados
+- **Banco de dados (SQLite)** → Persistência
 
 Fluxo:
-Cliente → API FastAPI → Serviço de IA → Banco → Resposta
+
+Usuário → Frontend → API FastAPI → IA → Banco → Resposta → Interface
 
 ## 🧠 Tecnologias Utilizadas
 
+### Backend
 - ⚡ FastAPI
 - 🤖 Google Gemini (IA)
 - 🗄 SQLite
-- 🚀 Render (Deploy)
+- 🚀 Render
 - 🐍 Python
+
+### Frontend
+- ⚛️ Next.js
+- 🎨 Tailwind CSS
+- ⚡ React
 
 ---
 
 ## 📌 Funcionalidades
 
-✔ Classificação automática de chamados  
+✔ Classificação automática de chamados com IA  
+✔ Interface web para envio e análise de chamados  
+✔ Histórico de chamados com filtros e paginação  
+✔ Dashboard com métricas operacionais  
 ✔ Processamento individual e em lote  
 ✔ Persistência em banco de dados  
-✔ Filtros e paginação  
-✔ Busca por ID  
 ✔ API REST documentada  
 
 ---
@@ -150,6 +163,8 @@ Este projeto pode ser utilizado em:
 
 Reduzindo tempo de resposta e aumentando eficiência operacional.
 
-⭐ Status do Projeto
+## 🎯 Visão do Projeto
 
-🚀 Projeto funcional e em evolução contínua
+Este projeto demonstra a aplicação prática de Inteligência Artificial em ambientes corporativos, com foco em automação de processos, eficiência operacional e construção de sistemas escaláveis.
+
+Foi desenvolvido com foco em simular um produto real, integrando backend, frontend e IA em um fluxo completo de negócio.
